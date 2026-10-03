@@ -5,7 +5,7 @@ import numpy as np
 best_model = joblib.load('model.joblib')
 scaler = joblib.load('scaler.joblib')
 
-st.title('Diabetes Progression Tracker ')
+st.title('Diabetes Progression Tracker')
 st.write('This app helps you explore your diabetes risk based on the health information you provide.Simply enter the requested values in the fields below.Once you’ve completed all the fields, click Predict to see the result.This prediction is for educational purposes and does not replace medical advice.') 
 
 # Example input — repeat st.number_input for each feature in your dataset
@@ -27,7 +27,7 @@ if st.button('Predict'):
     input_data = np.array([[age, sex, bmi, bp, s1, s2, s3, s4, s5, s6]])
     scaled_input = scaler.transform(input_data)
     result = best_model.predict(scaled_input)
-    Prediction = float(result[0])
+    prediction = float(result[0])
 
 # Adding visuals to emphasize risk
     if prediction < 100:
